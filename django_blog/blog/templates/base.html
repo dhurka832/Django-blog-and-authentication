@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Django-Blog</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a href="{% url 'posts' %}" class="navbar-brand">Awesome Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="False" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {% if request.user.is_authenticated %}
+                <span class="text-light m-2">Hi {{request.user.username | title}} |</span>
+                <li class="nav-item">
+                    <a href="{% url 'post-create' %}" class="nav-link text-light">Create New Post</a>
+                </li>
+                {% comment %} <li class="nav-item">
+                  <a href="{% url 'posts' %}" class="nav-link text-light">My Posts</a>
+                </li> {% endcomment %}
+                <li class="nav-item">
+                  <a href="{% url 'logout' %}" class="nav-link text-light">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a href="{% url 'login' %}" class="nav-link text-light">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'register' %}" class="nav-link text-light">Register</a>
+                </li> 
+                {% endif %}
+              
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% include "message.html" %}
+    {% block content %}
+    {% endblock %}
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+{% comment %} <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto animi non quas, veritatis vero aut. Sequi, sed quae nisi ex quibusdam iusto dolores, neque aut perferendis a natus quis cum consequatur ipsum debitis reiciendis odit ab voluptate deserunt at voluptas quas. Enim, ab molestias rerum tempora nemo aut esse fuga suscipit veritatis temporibus sit ipsa, iusto quidem amet maiores. Possimus omnis quam deleniti deserunt et vel voluptas dolorum doloremque fugiat, repellat tenetur voluptates tempore asperiores ad! Laudantium tempora eligendi dolore excepturi doloremque expedita est fuga eaque magnam? Vero quas repudiandae veritatis ea eos ipsam nostrum, maiores suscipit iure commodi nobis vitae assumenda iusto vel deleniti, repellendus consequatur ad sunt rerum aut cupiditate itaque, odio fuga aspernatur! Tempore corporis, ipsam provident quibusdam amet autem veritatis debitis facere ipsa aperiam, sint, fugit facilis quis dignissimos sit praesentium officiis temporibus officia nostrum? Eius deserunt nobis assumenda aliquam? Dolore perspiciatis pariatur at dicta quibusdam impedit harum explicabo id, magni accusamus veritatis error unde saepe repellat nam optio. Cumque esse laudantium qui pariatur, sequi nihil eum voluptatibus asperiores cupiditate accusamus modi aliquam blanditiis, dolore eius. Aut, provident cum facere reprehenderit harum dolores ex at consequuntur, corrupti, suscipit maiores odio aperiam assumenda quisquam expedita aliquid rerum. Repellendus modi aperiam enim ipsa commodi odio, quae voluptate dicta possimus rem aliquam quibusdam esse distinctio, excepturi beatae velit eveniet provident fugit voluptatibus quidem ea dolore tempora. Nihil non, nesciunt cum incidunt asperiores at voluptas sapiente vero deserunt ad dolor? Animi sit impedit amet alias, eaque ea eligendi tenetur cumque praesentium dolores, illum ad expedita libero, obcaecati blanditiis ullam laudantium! Fugiat, beatae itaque. Fugit, laudantium cupiditate facilis autem odio magnam mollitia alias temporibus molestias? Enim voluptatibus voluptatum dolores, consequuntur autem reiciendis earum reprehenderit deleniti harum veritatis molestiae quaerat magnam a. Magni praesentium quisquam ducimus consequatur magnam cum error. Cupiditate dolor perferendis aperiam laboriosam est autem. Corporis, eos nostrum. Aliquid repudiandae delectus asperiores commodi quasi eaque beatae iure ipsum ab nesciunt itaque tempora autem quos blanditiis voluptates at debitis cupiditate neque dolor obcaecati optio quia incidunt, suscipit sapiente. Quisquam officiis nemo temporibus. Doloribus sapiente laborum repellat rerum. Porro, placeat error nostrum deserunt magnam veniam reiciendis quaerat velit minus ullam soluta perferendis dignissimos nisi dolorum totam fugiat! Sequi amet reprehenderit impedit similique temporibus reiciendis quo sit? Maiores, possimus explicabo! Ut sunt, architecto dolores provident, laudantium accusantium quo et fugit odio, rem magnam nihil error eum porro. Nemo, quas at, omnis odio ex eius sed neque reprehenderit fugiat numquam incidunt dolor! Dicta eos praesentium veritatis excepturi ad, placeat itaque blanditiis sunt fugiat rerum ipsam. Consequuntur quam, possimus nobis eum dignissimos ratione modi incidunt nisi debitis quis dicta perferendis facilis sunt, voluptatum tenetur quod voluptates esse natus ab laudantium dolor aut. Officia totam doloribus velit laborum enim amet adipisci quod esse? Sed ullam, voluptatum ipsam assumenda quod quam laboriosam a debitis ut nesciunt, id velit aperiam natus? Quisquam praesentium quos non quam sint quod deleniti fugiat mollitia eum. Optio quibusdam eveniet totam non, magnam nihil ipsum eaque ullam possimus eos nemo consectetur eum in.</p> {% endcomment %}

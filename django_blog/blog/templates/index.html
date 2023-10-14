@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        {% for post in posts  %}
+            <div class="card mt-3 p-2">
+              <h2 class="card-title"><a href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
+              <p class="card-text text-muted">{{post.published_at | date:'M d , Y'}} by <span class="font-weight-bold">{{post.author}}</span> </p> 
+              <p class="card-text">{{post.content | slice:":250" | safe }}...</p>
+              {% if request.user.is_authenticated and request.user == post.author %}
+              <div class="text-right">
+                <a href="{% url 'post-update' post.id%}" class="card-link mr-1">Update</a>
+                <a href="{% url 'post-delete' post.id%}" class="card-link">Delete</a>
+              </div>
+              {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto m-4">
+  <h2>Create New Post</h2>
+  <hr>
+  <div class="form-group">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Save" class="btn btn-success btn-block">
+    </form>
+  </div>
+
+</div>
+
+ 
+    
+  
+{% endblock %}

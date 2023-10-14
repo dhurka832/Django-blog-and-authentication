@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="card p-2">
+    <form method="POST">
+      {% csrf_token %}
+      <p class="card-text">Are you sure want to delete this post?</p>
+      <input type="submit" value="Delete" class="btn text-primary mr-1">
+      <a href="{% url 'posts' %}" class="card-link">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
